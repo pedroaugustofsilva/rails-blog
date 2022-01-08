@@ -1,0 +1,6 @@
+require:
+  - rubocop-rails
+  - rubocop-minitest
+
+Style/Documentation:
+  Enabled: false
