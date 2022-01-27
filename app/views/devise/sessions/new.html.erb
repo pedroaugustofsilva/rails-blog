@@ -1,0 +1,38 @@
+<div class="h-screen grid-cols col-span-2 sm:col-span-0
+            sm:col-start-2 sm:col-end-4 lg:col-start-5
+            lg:col-end-9 2xl:col-start-6 2xl:col-end-8
+            flex flex-col justify-center items-center
+            ">
+  <%= form_for(resource,
+               as: resource_name,
+               url: session_path(resource_name),
+               html: {
+                 class: 'p-5 grid grid-cols-2 border rounded-2xl border-slate-300 w-4/5 lg:w-full'
+               })do |f| %>
+    <h2 class="col-span-2 text-center font-sans text-xl"> Login </h2>
+    <div class="col-span-2 mt-5">
+      <%= f.email_field :email, autofocus: true, placeholder: 'Email',
+                        autocomplete: "email",
+                        class: 'border-slate-300 rounded-2xl w-full' %>
+    </div>
+
+    <div class="col-span-2 mt-3">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password',
+                           class: 'border-slate-300 rounded-2xl w-full' %>
+    </div>
+
+    <div class="col-span-2 mt-3 text-right text-sm font-sans text-slate-600 hover:text-slate-900">
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+    </div>
+    <div class="col-span-2 flex justify-end mt-5">
+      <%= f.submit "Log in", class: 'btn-primary' %>
+    </div>
+    <div class="col-span-2 text-left text-red-700">
+      <% flash.each do |_type, msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
