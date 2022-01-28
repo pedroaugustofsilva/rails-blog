@@ -36,3 +36,4 @@
 # Ignore IDE configs
 /.idea
 /.idea/*
+/config/credentials/development.key
