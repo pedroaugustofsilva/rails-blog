@@ -1,7 +1,10 @@
-<div class="h-screen grid-cols col-span-2 sm:col-span-0
-            sm:col-start-2 sm:col-end-4 lg:col-start-5
-            lg:col-end-9 2xl:col-start-6 2xl:col-end-8
-            flex flex-col justify-center items-center
+<div class="grid-cols
+            col-span-2
+            sm:col-span-auto sm:col-start-2 sm:col-end-4
+            md:col-start-3 md:col-end-5
+            lg:col-start-3 lg:col-end-7
+            xl:col-start-5 xl:col-end-9
+            h-screen flex flex-col justify-center items-center
             ">
 
   <%= form_for(resource,
@@ -9,7 +12,7 @@
                url: password_path(resource_name),
                html: {
                  method: :put,
-                 class: 'p-5 grid grid-cols-2 border rounded-2xl border-slate-300 w-4/5 lg:w-full'
+                 class: 'p-5 grid grid-cols-2 border rounded-2xl border-slate-300 w-4/5 md:w-full lg:w-4/5 2xl:w-3/5'
                })do |f| %>
     <%= f.hidden_field :reset_password_token %>
 

@@ -7,3 +7,4 @@
     @apply border rounded-3xl px-5 py-2 bg-slate-200 hover:bg-slate-400 cursor-pointer;
   }
 }
+@import 'actiontext.css';
