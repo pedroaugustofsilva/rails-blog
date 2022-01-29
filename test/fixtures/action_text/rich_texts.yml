@@ -1,0 +1,4 @@
+article_content:
+  record: one (Article)
+  name: content
+  body: <div>Hello, from <strong>a fixture</strong></div>
