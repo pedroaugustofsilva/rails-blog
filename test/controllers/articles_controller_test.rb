@@ -3,12 +3,20 @@
 require 'test_helper'
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:admin)
     @article = articles(:one)
   end
 
   test 'should get index' do
     get articles_url
+    assert_response :success
+  end
+
+  test 'should show article' do
+    get article_url(@article)
     assert_response :success
   end
 
@@ -24,11 +32,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to article_url(Article.order('created_at DESC').first)
-  end
-
-  test 'should show article' do
-    get article_url(@article)
-    assert_response :success
   end
 
   test 'should get edit' do
