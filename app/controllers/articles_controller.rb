@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[new create update edit destroy]
+  before_action :set_article, only: %i[show edit update destroy]
 
   # GET /articles or /articles.json
   def index
@@ -21,7 +22,7 @@ class ArticlesController < ApplicationController
 
   # POST /articles or /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = Article.new(article_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @article.save
@@ -63,6 +64,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :slug, :content, :user_id)
+    params.require(:article).permit(:title, :slug, :content)
   end
 end
