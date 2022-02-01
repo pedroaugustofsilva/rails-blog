@@ -1,3 +1,6 @@
 <div class="center-content">
+  <% if user_signed_in? %>
+    <%= link_to 'New post', new_article_url, class: 'text-center mt-6 mb-16 hover:text-blue-500' %>
+  <% end %>
   <%= render @articles %>
 </div>

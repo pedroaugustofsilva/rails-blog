@@ -13,10 +13,10 @@ class Article < ApplicationRecord
   def set_slug
     return if slug.present? || title.blank?
 
-    possible_slug = title.downcase.gsub(/ +\d+/, '-')
+    possible_slug = title.downcase.strip.gsub(/\s+/, '-')
 
     while Article.where(slug: possible_slug).count.positive?
-      possible_slug = title.downcase.gsub(/ +\d+/, '-') + "-#{SecureRandom.hex[0..2]}"
+      possible_slug = title.downcase.strip.gsub(/\s+/, '-') + "-#{SecureRandom.hex[0..2]}"
     end
 
     self.slug = possible_slug
