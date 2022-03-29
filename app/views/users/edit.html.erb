@@ -1,0 +1,10 @@
+<%= turbo_frame_tag 'user' do %>
+  <%= form_for current_user, url: users_url, html: { class: 'flex flex-col items-center' } do |f| %>
+    <div class="bg-current rounded-full w-20 h-20"></div>
+    <%= f.text_field :name, class: 'mt-3 text-lg font-semibold' %>
+    <%= f.file_field :photo, data: { hidden: true }, class: 'mt-3 text-lg font-semibold' %>
+    <%= f.submit 'Save' %>
+    <a href="#" class="mt-1 text-blue-500 italic">Why I write this blog</a>
+  <% end %>
+  <%= link_to 'Voltar', users_url %>
+<% end %>

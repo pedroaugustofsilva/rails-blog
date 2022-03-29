@@ -25,11 +25,9 @@
                        lg:col-start-3 lg:col-end-7
                        xl:col-start-4 xl:col-end-10
                        p-5 flex flex-col">
-          <div class="flex flex-col items-center">
-            <div class="bg-current rounded-full w-20 h-20"></div>
-            <div class="mt-3 text-lg font-semibold">Pedro Augusto</div>
-            <a href="#" class="mt-1 text-blue-500 italic">Why I write this blog</a>
-          </div>
+          <%= turbo_frame_tag 'user' do %>
+            <%= render 'users/user' %>
+          <% end %>
         <%= render ' shared/nav' %>
         </header>
       <% end %>
