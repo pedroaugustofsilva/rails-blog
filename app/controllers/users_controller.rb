@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def show; end
 
-  # GET /articles/1/edit
   def edit; end
 
   def update
@@ -26,6 +25,6 @@ class UsersController < ApplicationController
   end
 
   def article_params
-    params.require(:user).permit(:name, :email, :photo)
+    params.require(:user).permit(:name, :email, :photo, :password)
   end
 end

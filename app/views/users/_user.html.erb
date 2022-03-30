@@ -1,8 +1,6 @@
 <div class="flex flex-col items-center">
   <% if @global_user.photo.present? %>
-<!--    <div class="bg-current rounded-full w-20 h-20">-->
       <img class="bg-current rounded-full w-20 h-20" src="<%= url_for @global_user.photo %>" />
-<!--    </div>-->
   <% end %>
   <div class="mt-3 text-lg font-semibold"><%= @global_user.name %></div>
   <% if user_signed_in? %>
@@ -10,5 +8,4 @@
       <%= image_tag('icons/edit-icon.svg', class: 'ml-3 inline') %>
     <% end %>
   <% end %>
-  <a href="#" class="mt-1 text-blue-500 italic">Why I write this blog</a>
 </div>
