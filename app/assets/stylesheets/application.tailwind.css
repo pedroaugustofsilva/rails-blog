@@ -14,16 +14,22 @@
     .center-content {
         @apply  col-span-2
         sm:col-span-4
-        md:col-auto md:col-start-3 md:col-end-5
-        lg:col-start-3 lg:col-end-7
-        xl:col-start-4 xl:col-end-10
-        2xl:col-start-5 2xl:col-end-9
+        md:col-auto md:col-start-2 md:col-end-6
+        lg:col-start-2 lg:col-end-8
+        xl:col-start-3 xl:col-end-11
+        2xl:col-start-4 2xl:col-end-10
         px-5 flex flex-col;
+    }
+
+
+    .article-content div {
+        @apply text-slate-800 text-xl
+    }
+
+    .article-content h3 {
+        @apply mb-5 font-semibold text-2xl text-slate-800
     }
 }
 
 @import 'actiontext.css';
 
-.article-content p {
-    margin-bottom: 1rem;
-}

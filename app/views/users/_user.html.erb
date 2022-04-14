@@ -1,8 +1,8 @@
 <div class="flex flex-col items-center">
   <% if @global_user.photo.present? %>
-      <img class="bg-current rounded-full w-20 h-20" src="<%= url_for @global_user.photo %>" />
+      <img class="bg-current rounded-full w-14 h-14" src="<%= url_for @global_user.photo %>" />
   <% end %>
-  <div class="mt-3 text-lg font-semibold"><%= @global_user.name %></div>
+  <div class="mt-3 text-lg font-light"><%= link_to @global_user.name, root_path, target: "_top" %></div>
   <% if user_signed_in? %>
     <%= link_to edit_users_url do %>
       <%= image_tag('icons/edit-icon.svg', class: 'ml-3 inline') %>
