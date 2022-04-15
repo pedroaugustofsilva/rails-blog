@@ -18,7 +18,7 @@
                 lg:grid-cols-8
                 xl:grid-cols-12
                 w-screen gap-x-2">
-      <% if controller.controller_name.eql?('articles') %>
+      <% if show_header?(controller.controller_name) %>
         <header class="col-span-2
                        sm:col-span-4
                        md:col-auto md:col-start-3 md:col-end-5

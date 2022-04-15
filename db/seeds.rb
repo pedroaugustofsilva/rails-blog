@@ -2,7 +2,6 @@
 
 user = User.create_with(password: '12345678', name: 'Pedro').find_or_create_by(email: 'admin@admin.dev')
 
-
 if ENV['RAILS_ENV'] == 'development'
   15.times do
     Article.create(title: Faker::Lorem.sentence,

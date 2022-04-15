@@ -4,3 +4,8 @@ require:
 
 Style/Documentation:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - 'config/environments/development.rb'

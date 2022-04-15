@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'user' do %>
   <%= form_for current_user, url: users_url, html: { class: 'flex flex-col items-center', 'data-controller': 'user-edit' } do |f| %>
 
-    <img data-user-edit-target="imgPhoto" class="bg-current rounded-full w-20 h-20" src="<%= photo_url %>" />
+    <img data-user-edit-target="imgPhoto" class="bg-current rounded-full w-20 h-20" src="<%= photo_url(@global_user) %>" />
     <%= f.file_field :photo, hidden: true, data: { action: 'user-edit#changeImgSrc', 'user-edit-target': 'photoField' }, class: 'mt-3 text-lg font-semibold' %>
 
     <div class="flex justify-center mt-3 mb-3">

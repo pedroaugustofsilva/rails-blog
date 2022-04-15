@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 class TurboFailureApp < Devise::FailureApp
   def respond
     if request_format == :turbo_stream
@@ -21,7 +20,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '2e3b521d3afb4f8daf2dda59f5f391601f1be610db51cb42171e3fd20c7524e54993e18f85449188868b5308ec7e04444fb5ea496d3b0e5c66d0d4e09401f953'
+  # config.secret_key = '2e3b521d3afb4f8daf2dda59f5f391601f1be610db51cb42171e3fd20c7524e54993e18f85449188868b5308ec7e04444fb5ea496d3b0e5c66d0d4e09401f953' # rubocop:disable Layout/LineLength
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -133,7 +132,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'ac70525e5259a2b0f1cc5870a65aca3f168d4fc9e80fb3e1d3493ea486300be116ae8359a2dce1a667f8a6ae6145409d869c48d6cae48e11abd392c55e9dde89'
+  # config.pepper = 'ac70525e5259a2b0f1cc5870a65aca3f168d4fc9e80fb3e1d3493ea486300be116ae8359a2dce1a667f8a6ae6145409d869c48d6cae48e11abd392c55e9dde89' # rubocop:disable Layout/LineLength
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
