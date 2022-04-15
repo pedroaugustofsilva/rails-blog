@@ -2,7 +2,7 @@
 
 # This migration comes from active_storage (originally 20170806125915)
 class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
-  def change
+  def change # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     create_table :active_storage_blobs, id: :uuid do |t|
       t.string   :key,          null: false
       t.string   :filename,     null: false
@@ -18,7 +18,7 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
         t.datetime :created_at, null: false
       end
 
-      t.index [ :key ], unique: true
+      t.index [:key], unique: true
     end
 
     create_table :active_storage_attachments, id: :uuid do |t|
