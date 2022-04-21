@@ -29,6 +29,10 @@
     .article-content h3 {
         @apply mb-5 font-semibold text-2xl text-slate-800
     }
+
+    .article-content ul {
+        @apply list-disc
+    }
 }
 
 @import 'actiontext.css';
