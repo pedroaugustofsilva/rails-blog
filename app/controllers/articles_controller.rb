@@ -5,11 +5,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
-    @articles = if category_name.present?
-                  Article.joins(:category).where(category: { name: category_name }).all.order(created_at: :desc)
-                else
-                  Article.all.order(created_at: :desc)
-                end
+    @articles = Article.all.order(created_at: :desc)
   end
 
   def show; end
@@ -24,7 +20,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params.merge(user_id: current_user.id))
 
     if @article.save
-      redirect_to article_url(@article), notice: 'Article was successfully created.'
+      redirect_to article_url(@article), notice: I18n.t(:successfully_created, name: Article.model_name.human)
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,7 +28,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to article_url(@article), notice: 'Article was successfully updated.'
+      redirect_to article_url(@article), notice: I18n.t(:successfully_updated, name: Article.model_name.human)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -41,20 +37,16 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
 
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to articles_url, notice: I18n.t(:successfully_destroyed, name: Article.model_name.human)
   end
 
   private
 
   def set_article
-    @article = Article.find(params[:id])
+    @article = params[:slug] ? Article.find_by(slug: params[:slug]) : Article.find(params[:id])
   end
 
   def article_params
-    params.require(:article).permit(:title, :slug, :content, :category_id)
-  end
-
-  def category_name
-    params[:category]
+    params.require(:article).permit(:title, :slug, :content)
   end
 end

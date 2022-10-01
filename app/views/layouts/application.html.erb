@@ -11,29 +11,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="background-color: #FCFEFF">
+  <body class="font-roboto">
+    <header class="w-full py-1 px-5 flex bg-gradient-to-r from-violet-700 to-emerald-500 flex flex-col">
+      <%= render 'users/user' %>
+    </header>
     <main class="grid grid-cols-2
-                sm:grid-cols-4
-                md:grid-cols-6
-                lg:grid-cols-8
-                xl:grid-cols-12
-                w-screen gap-x-2">
-      <% if show_header?(controller.controller_name) %>
-        <header class="col-span-2
-                       sm:col-span-4
-                       md:col-auto md:col-start-3 md:col-end-5
-                       lg:col-start-3 lg:col-end-7
-                       xl:col-start-4 xl:col-end-10
-                       p-5 flex flex-col">
-          <%= turbo_frame_tag 'user' do %>
-            <%= render 'users/user' %>
-          <% end %>
-        <%= render ' shared/nav' %>
-        </header>
-      <% end %>
-
+                    sm:grid-cols-4
+                    md:grid-cols-6
+                    lg:grid-cols-8
+                    xl:grid-cols-12
+                    gap-x-2 min-h-screen">
       <%= yield %>
     </main>
-    <%= render ' shared/footer' %>
+  <%= render ' shared/footer' %>
   </body>
 </html>

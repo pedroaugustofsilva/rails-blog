@@ -9,12 +9,10 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    respond_to do |format|
-      if @user.update(article_params)
-        format.html { redirect_to users_url(@user), notice: 'Article was successfully updated.' }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @user.update(article_params)
+      redirect_to users_url(@user), notice: I18n.t(:successfully_updated, name: User.model_name.human)
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -25,6 +23,6 @@ class UsersController < ApplicationController
   end
 
   def article_params
-    params.require(:user).permit(:name, :email, :photo, :password)
+    params.require(:user).permit(:name, :email, :password)
   end
 end
