@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   resources :articles
   resource :users, only: %i[show edit update]
-  resources :categories
+
+  get ':slug', to: 'articles#show', as: :slug
 end

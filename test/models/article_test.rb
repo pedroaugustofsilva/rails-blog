@@ -7,7 +7,5 @@ class ArticleTest < ActiveSupport::TestCase
     should validate_presence_of(:title)
     should validate_presence_of(:slug)
     should validate_presence_of(:content)
-
-    should belong_to(:category).optional
   end
 end

@@ -1,4 +1,8 @@
-<div class="center-content 2xl:col-start-5 2xl:col-end-9">
+<div class="center-content
+            md:col-start-2 md:col-end-6
+            lg:col-start-3 lg:col-end-7
+            xl:col-start-5 xl:col-end-9
+            2xl:col-start-5 2xl:col-end-9 mt-10">
   <% if user_signed_in? %>
     <%= link_to 'New post', new_article_url, class: 'text-center mt-6 mb-16 hover:text-blue-500' %>
   <% end %>

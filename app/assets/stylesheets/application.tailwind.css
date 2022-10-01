@@ -1,3 +1,5 @@
+@import 'actiontext.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,26 +16,26 @@
     .center-content {
         @apply  col-span-2
         sm:col-span-4
-        md:col-auto md:col-start-2 md:col-end-6
+        md:col-auto md:col-start-1 md:col-end-7
         lg:col-start-2 lg:col-end-8
         xl:col-start-3 xl:col-end-11
         2xl:col-start-4 2xl:col-end-10
         px-5 flex flex-col;
     }
 
-
-    .article-content div {
-        @apply text-slate-800 text-xl
+    .trix-content div {
+        @apply text-slate-800 text-lg sm:text-xl
     }
 
-    .article-content h3 {
-        @apply mb-5 font-semibold text-2xl text-slate-800
+    .trix-content h2 {
+        @apply mb-3 font-semibold text-xl sm:text-3xl md:text-4xl text-slate-800
     }
 
-    .article-content ul {
+    .trix-content ul {
         @apply list-disc
     }
+
+   .trix-content ol {
+       @apply list-decimal
+   }
 }
-
-@import 'actiontext.css';
-
