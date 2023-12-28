@@ -1,11 +1,27 @@
 # frozen_string_literal: true
 
-user = User.create_with(password: '12345678', name: 'Pedro').find_or_create_by(email: 'admin@admin.dev')
+# Constants
+USER_EMAIL = 'admin@admin.dev'
+USER_PASSWORD = '12345678'
+USER_NAME = 'John'
+NUMBER_OF_ARTICLES = 15
 
-if ENV['RAILS_ENV'] == 'development'
-  15.times do
-    Article.create(title: Faker::Lorem.sentence,
-                   content: Faker::Lorem.paragraphs(number: 10).map { |c| "<p>#{c}</p>" }.join(' '),
-                   user_id: user.id)
+def generate_html_content
+  Faker::Lorem.paragraphs(number: 10).map { |paragraph| "<p>#{paragraph}</p>" }.join(' ').html_safe
+end
+
+if Rails.env.development?
+
+  user = User.create_with(password: USER_PASSWORD, name: USER_NAME)
+             .find_or_create_by!(email: USER_EMAIL)
+
+  article_data = Array.new(NUMBER_OF_ARTICLES) do
+    {
+      title: Faker::Lorem.sentence,
+      content: generate_html_content,
+      user_id: user.id
+    }
   end
+
+  Article.create!(article_data)
 end
