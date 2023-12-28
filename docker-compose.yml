@@ -4,14 +4,20 @@ services:
   redis:
     image: redis
     command: redis-server
+    volumes:
+      - redis_data:/data
     ports:
       - "6379:6379"
 
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
+
+volumes:
+  postgres_data:
+  redis_data:
