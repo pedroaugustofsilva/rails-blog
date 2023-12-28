@@ -1,8 +1,16 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
-  validates :title, :slug, :content, presence: true
+  belongs_to :user
   has_rich_text :content
 
-  belongs_to :user
+  validates :title, :slug, :content, presence: true
+
+  before_validation :set_slug
+
+  private
+
+  def set_slug
+    self.slug ||= title.to_s.parameterize
+  end
 end
